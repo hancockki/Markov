@@ -15,11 +15,80 @@
 
         <title>CSS Grids Gallery</title>
     </head>
-<h1>Your Personalized Yoga Sequence!</h1>
-<p> Here is a list of poses for a unique yoga class, based on the number of postures specified and the type of class.
-    This will help to keep creativity rolling when sequencing for a class!
-</p>
+    <style>
+		#top, #bottom, #left, #right {
+			background: #CCE0FF;
+			}
+			#left, #right {
+				position: fixed;
+				top: 0; bottom: 0;
+				width: 60px;
+				}
+				#left { left: 0; }
+				#right { right: 0; }
+				
+			#top, #bottom {
+				position: fixed;
+				left: 0; right: 0;
+				height: 15px;
+				}
+				#top { top: 0; }
+				#bottom { bottom: 0; }
+				
+		@media 
+		
+		/* Fairly small screens including iphones */
+		only screen and (max-width: 500px),
+		
+		/* iPads */
+		only screen and (min-device-width: 768px) and (max-device-width: 1024px) 
+		
+		{
+			#top, #bottom, #left, #right { display: none; }
+        }
+        p.p1 {
+        background-color: aliceblue;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-bottom: 15px;
+        padding-top: 15px;
+
+        }
+
+        h1.h1 {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            background-color: aliceblue;
+        }
+
+        h2.h2 {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 80px;
+            padding-right: 80px;
+            background-color: aliceblue;
+        }
+        p.p2 {
+        background-color: aliceblue;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        text-align: left;
+
+        }
+
+	</style>
 <body>
+<div id="left"></div>
+<div id="right"></div>
+<div id="top"></div>
+<div id="bottom"></div>
+<h1 class="h1">Your Personalized Yoga Sequence!</h1>
+<p class="p1"> Here is a list of poses for a unique yoga class, based on the number of postures specified and the type of class.
+    This will help to keep creativity rolling when sequencing for a class! The following is a list of poses for you to try sequencing with. Simply reload the page and answer the questions again to get a new sequence
+</p>
+<main id="main">
 <div class="container">
 <div class="gallery">
         {% for images, names in data %}
@@ -31,9 +100,10 @@
         {% endfor %}
     </div>
 </div>
-<h2>Notes about this app:</h2>
-<p></p>
+<h2 class="h2">Thank you for trying the sequence generator!</h2>
+<p class="p2"> Notes about this app: <br> This is truly a work in progress-- I am hoping to add more data to my input set so that the results are better. Also all image credits are from tumee.com, thanks!
+</p>
 </body>
-
+</main>
 </html>
 

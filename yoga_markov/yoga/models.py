@@ -10,8 +10,6 @@ import xlrd
 from django.shortcuts import render
 import math
 
-image_png = []
-states = []
 """
 Define a MarkovChain class, which uses markov chains to create a unique sequence for a yoga class based on input data
 The input data is in the asana master list xlsx document, which contains two sheets:
@@ -31,17 +29,21 @@ MarkovChain attributes:
 
 """
 class MarkovChain(object):
-    def __init__(self, restorative):
-        self.restorative = restorative
+    def __init__(self):
         self.states_info, self.states_list = self.create_states('/Users/kimhancock/Desktop/Computational_Creativity/Markov/yoga_markov/yoga/asana_master_list.xlsx')
         self.class_type, self.num_postures = self.get_user_input()
+        print(self.class_type)
+        if self.class_type.strip() == "restorative":
+            self.restorative = True
+        else:
+            self.restorative = False
         self.index_dict = {self.states_list[index]: index for index in 
                            range(len(self.states_list))}
         #we have to create the transition matrix
         transition_matrix = self.create_transition_matrix2('/Users/kimhancock/Desktop/Computational_Creativity/Markov/yoga_markov/yoga/asana_master_list.xlsx',len(self.states_list))
         self.transition_matrix = np.atleast_2d(transition_matrix)
 
-        print(self.index_dict)
+        #print(self.index_dict)
 
     """
     Returns the next pose in the class in the markov chain
@@ -56,10 +58,6 @@ class MarkovChain(object):
     """
     def next_state(self, current_state, a, p):
         return np.random.choice(a, p=p)
-        #return np.random.choice(
-         #self.states_list, 
-         #p=self.transition_matrix[self.index_dict[current_state], :]
-        #)
     
     """
         Generates the next states of the system, based on the type of class
@@ -76,7 +74,7 @@ class MarkovChain(object):
         #if it's restorative, we want them all to be easy
         if self.restorative:
             category = 'difficulty'
-            pose_type = ['easy'*self.num_postures]
+            pose_type = ['easy'] *self.num_postures
         #otherwise, we want to make sure we have both warming and cool down poses
         #FUTURE DELIVERABLE: make this more specific
         else:
@@ -98,6 +96,7 @@ class MarkovChain(object):
             else:
                 #we need to get sublist of easy poses
                 specific_states_list, specific_tranisition_matrix = self.get_search_space(pose_type[i], current_state, category)
+                print(specific_states_list, specific_tranisition_matrix)
                 #call next state with sublists
                 next_state = self.next_state(current_state, specific_states_list, specific_tranisition_matrix)
             #add our next pose to list
@@ -126,7 +125,7 @@ class MarkovChain(object):
         for i in self.states_list:
             if pose_type in self.states_info[i][category]:
                 specific_states_list.append(i)
-                #print("element to add\n", self.transition_matrix[self.index_dict[current_state]][self.index_dict[i]])
+                print("element to add\n", self.transition_matrix[self.index_dict[current_state]][self.index_dict[i]])
                 specific_tranisition_matrix.append(self.transition_matrix[self.index_dict[current_state]][self.index_dict[i]])
         
         temp_trans_matrix = self.create_temp_transition_matrix(len(specific_tranisition_matrix))
@@ -177,7 +176,7 @@ class MarkovChain(object):
         for i in range(len(states_list)): #we want to lowercase everything
             lower = states_list[i].lower()
             states_list[i] = lower
-        print(states_list)
+        #print(states_list)
         return states_info, states_list
 
 
@@ -209,7 +208,7 @@ class MarkovChain(object):
         num_classes, num_poses = asana_classes.ncols, asana_classes.nrows
         for col in range(num_classes): #col is next pose
             current_pose = asana_classes.cell(0, col).value.lower() #first pose in sequence
-            print(current_pose)
+            #print(current_pose)
             for row in range(1, num_poses): #row is starting pose
                 next_pose = asana_classes.cell(row, col).value.lower()
                 if next_pose == '': #end of column
@@ -218,7 +217,7 @@ class MarkovChain(object):
                 #this gets us to the correct index
                 transition_matrix[self.index_dict[current_pose]][self.index_dict[next_pose]] += 1
                 current_pose = next_pose #ready to go to our next pose!
-        print(transition_matrix)
+        #print(transition_matrix)
         for i in range(num_states):
             temp = []
             sums = 0 #want to divide every number in the row by the sum of that row so the row adds up to 1
@@ -229,7 +228,7 @@ class MarkovChain(object):
                 if sums == 0:
                     continue
                 transition_matrix[i][j] = transition_matrix[i][j] / sums #calculate probability
-        print(transition_matrix)
+        #print(transition_matrix)
         return transition_matrix
             
 
@@ -260,6 +259,7 @@ class MarkovChain(object):
     def get_user_input(self):
         print("What type of class would you like to teach? Choose between the following:\nRestorative, Basic Vinyasa, Power Vinyasa\nType answer below: ")
         class_type = input()
+        class_type = class_type.lower()
         print("How many postures would you like?\nType answer below:")
         num_postures = input()
         num_postures = int(num_postures)
