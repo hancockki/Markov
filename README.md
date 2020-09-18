@@ -67,3 +67,4 @@ The subfolder containing all the images I used is in the static folder inside of
 (https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e0f0fd666a5c/) to learn how to make the grid of images in CSS.
 - I used [this article](
 https://medium.com/@__amol__/markov-chains-with-python-1109663f3678) to use as an example of how to make a markov chain. I really didn't end up taking much code, but I used the general structure for my MarkovChain class.
+- I used w3 schools to help with html/css stuff, [here](https://www.w3schools.com/cssref/pr_padding.asp)
