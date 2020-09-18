@@ -26,11 +26,11 @@ To run the app yourself, first clone this repo by creating a new directory calle
 2. git clone [this repo url]
 
 This will create a local copy of this repo in the right directory. The file structure for the app is as follows:
--markov
-  -yoga_markov
-    -yoga
-      -static
-        -css
+- markov
+  - yoga_markov
+    - yoga
+      - static
+        - css
       index1.html
       __init__.py
       admin.py
@@ -40,8 +40,8 @@ This will create a local copy of this repo in the right directory. The file stru
       tests.py
       urls.py
       views.py
-      -migrations
-      -yoga markov
+      - migrations
+      - yoga markov
         settings.py
         urls.py
         wsgi.py
