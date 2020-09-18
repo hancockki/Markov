@@ -31,15 +31,15 @@ This will create a local copy of this repo in the right directory. The file stru
     - yoga
       - static
         - css
-      index1.html
-      __init__.py
-      admin.py
-      apps.py
-      asana_master_list.xlsx
-      models.py
-      tests.py
-      urls.py
-      views.py
+      - index1.html
+      - __init__.py
+      - admin.py
+      - apps.py
+      - asana_master_list.xlsx
+      - models.py
+      - tests.py
+      - urls.py
+      - views.py
       - migrations
       - yoga markov
         settings.py
