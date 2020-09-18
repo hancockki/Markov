@@ -41,7 +41,7 @@ This will create a local copy of this repo in the right directory. The file stru
       - urls.py
       - views.py
       - migrations
-      - yoga markov
+      -- yoga markov
         settings.py
         urls.py
         wsgi.py
