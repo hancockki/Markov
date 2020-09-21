@@ -28,7 +28,7 @@ To run the app yourself, first clone this repo by creating a new directory calle
 This will create a local copy of this repo in the right directory. The file structure for the app is as follows:
 * markov
   * yoga_markov
-        * yoga
+  * yoga
         * static
         * css
          * index1.html
