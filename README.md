@@ -40,11 +40,11 @@ This will create a local copy of this repo in the right directory. The file stru
      * tests.py
      * urls.py
      * views.py
-   * migrations
+     * migrations
   * yoga markov
-   * settings.py
-   * urls .py
-   * wsgi.py
+     * settings.py
+     * urls .py
+     * wsgi.py
    * manage.py
 
 The most important files here (the only ones i modified from the starter app) are the yoga_markov/yoga/static folder, which contains all the images and static css, views.py, settings.py, and models.py. I also created index1.html which displays the page. 
