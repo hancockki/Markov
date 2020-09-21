@@ -30,7 +30,7 @@ This will create a local copy of this repo in the right directory. The file stru
   * yoga_markov
   * yoga
     * static
-     * css
+       * css
      * index1.html
    * init.py
    * admin.py
