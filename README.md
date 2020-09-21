@@ -47,15 +47,15 @@ This will create a local copy of this repo in the right directory. The file stru
      * wsgi.py
    * manage.py
 
-The most important files here (the only ones i modified from the starter app) are the yoga_markov/yoga/static folder, which contains all the images and static css, views.py, settings.py, and models.py. I also created index1.html which displays the page. 
+The most important files here (the only ones i modified from the starter app) are the yoga_markov/yoga/static folder, which contains all the images and static css, views.py, settings.py, and models.py. I also created index1.html which displays the page. The file that contains all the markov chain and generates the class is called models.py, and views.py is the file that creates a MarkovChain object and renders the webpage with the unique class.
 
-To run this, navigate to Markov/yoga_markov directory. Also, make sure all of your dependencies have been met (aka you have pip installed all needed packages). Most notably used are django and xlrd. Everything else should be fine, but you will get errors for unmet dependencies and can simply install them using "pip3 install [package name]" in the terminal.
+To run the app, navigate to Markov/yoga_markov directory. Also, make sure all of your dependencies have been met (aka you have pip installed all needed packages). Most notably used are django and xlrd. Everything else should be fine, but you will get errors for unmet dependencies and can simply install them using "pip3 install [package name]" in the terminal.
 Then, in the yoga_markov directory, type the following in the terminal to start the app:
 
 python3 manage.py runserver
 
 IMPORTANT: I developed this in python3 so make sure you are using that!
-Now, if all went well, the app should be running on port 8000 in your web browser. Load the page http://127.0.0.1:8000/yoga/ in your browser. Now, at this point, nothing will be displayed. Instead, you will be prompted for input at the terminal pertaining to how you want the app to be personalized. The first question will ask you what type of class you want-- if you specify restorative, then you will only get easy postures, for example. The second question is how many poses you want. I would recommend 5-10 for restorative and 12-20 for regular vinyasa. Upon typing this, you will see the sequence in your browser! Simply reload the page to get a new sequence, and hit ctrl-c when you want to stop running the app.
+Now, if all went well, the app should be running on port 8000 in your web browser. Load the page http://127.0.0.1:8000/yoga/ in your browser; chrome is easiest. At this point, nothing will be displayed. Instead, you will be prompted for input at the terminal pertaining to how you want the app to be personalized. The first question will ask you what type of class you want-- if you specify restorative, then you will only get easy postures, for example. The second question is how many poses you want. I would recommend 5-10 for restorative and 12-20 for regular vinyasa. Upon typing this, you will see the sequence in your browser! Simply reload the page to get a new sequence, and hit ctrl-c when you want to stop running the app.
 
 The subfolder containing all the images I used is in the static folder inside of yoga_markov/yoga/static. These were all pulled from [this site](https://www.tummee.com/yoga/poses/all)
 
