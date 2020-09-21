@@ -26,26 +26,26 @@ To run the app yourself, first clone this repo by creating a new directory calle
 2. git clone [this repo url]
 
 This will create a local copy of this repo in the right directory. The file structure for the app is as follows:
-- markov
-  - yoga_markov
-    - yoga
-      - static
-        - css
-      - index1.html
-      - __init__.py
-      - admin.py
-      - apps.py
-      - asana_master_list.xlsx
-      - models.py
-      - tests.py
-      - urls.py
-      - views.py
-      - migrations
-      -- yoga markov
-        settings.py
-        urls.py
-        wsgi.py
-        manage.py
+* markov
+  * yoga_markov
+        * yoga
+        * static
+        * css
+         * index1.html
+         * init.py
+         * admin.py
+        * apps.py
+         * asana_master_list.xlsx
+          * models.py
+         * tests.py
+         * urls.py
+         * views.py
+          * migrations
+        * yoga markov
+            * settings.py
+            * urls .py
+          * wsgi.py
+          * manage.py
 
 The most important files here (the only ones i modified from the starter app) are the yoga_markov/yoga/static folder, which contains all the images and static css, views.py, settings.py, and models.py. I also created index1.html which displays the page. 
 
